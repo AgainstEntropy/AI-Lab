@@ -131,3 +131,4 @@ dmypy.json
 # self files and dictionaries
 /imgs/
 /mats/
+/datas.zip
