@@ -109,6 +109,8 @@ if __name__ == "__main__":
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     output_txt_path = os.path.join(output_dir, f"{file_name}.txt")
+    if os.path.exists(output_txt_path):
+        os.remove(output_txt_path)
     output_txt = open(output_txt_path, 'a+')
 
     # data pre-process
@@ -123,6 +125,12 @@ if __name__ == "__main__":
     # prepare for ploting
     plt.rcParams["figure.figsize"] = (8.0, 6.0)
     plt.rcParams["figure.dpi"] = 200
+    fig0 = plt.figure()
+    for i in range(4):
+        plt.plot(data_y[:, i], c=f'C{i}', label=f'{i}')
+    plt.title('origin data')
+    plt.legend(loc='best')
+    fig0.savefig(output_dir + f'/{file_name}_raw.png')
     fig1, axes1 = plt.subplots(nrows=2, ncols=2, tight_layout=True)
     axes1 = axes1.reshape((4,))
     fig2, axes2 = plt.subplots(nrows=2, ncols=2, tight_layout=True)
@@ -164,7 +172,7 @@ if __name__ == "__main__":
         print()
 
     output_txt.close()
-    fig1.savefig(output_dir + '/1.png')
-    fig2.savefig(output_dir + '/2.png')
+    fig1.savefig(output_dir + f'/{file_name}1.png')
+    fig2.savefig(output_dir + f'/{file_name}2.png')
     # fig2.show()
     # input("Press Enter to close all figures.")
