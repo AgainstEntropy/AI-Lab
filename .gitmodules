@@ -1,0 +1,6 @@
+[submodule "NeTF_public"]
+	path = NeTF_public
+	url = https://github.com/AgainstEntropy/NeTF_public.git
+[submodule "NLOS classification"]
+	path = NLOS classification
+	url = https://github.com/AgainstEntropy/NLOS.git
